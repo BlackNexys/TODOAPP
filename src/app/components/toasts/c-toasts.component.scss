@@ -1,0 +1,77 @@
+:host {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    max-width: 400px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    //pointer-events: none; /* Prevents interaction with the host element */
+}
+
+.toast {
+    margin-bottom: .5rem;
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--toast-bg-color, #fff);
+    color: var(--toast-text-color, #333);
+    border: 1px solid var(--toast-border-color, #ccc);
+    pointer-events: all; /* Allows interaction with the toast elements */
+    box-sizing: border-box;
+    animation: expand 0.3s ease-out forwards;
+
+    
+
+    &.success {
+        background-color: #dff0d8;
+        color: #3c763d;
+        border-color: #d6e9c6;
+    }
+
+    &.error {
+        background-color: #f2dede;
+        color: #a94442;
+        border-color: #ebccd1;
+    }
+
+    &.info {
+        background-color: #d9edf7;
+        color: #31708f;
+        border-color: #bce8f1;
+    }
+
+    &.warning {
+        background-color: #fcf8e3;
+        color: #8a6d3b;
+        border-color: #faebcc;
+    }
+
+    .icon {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+    }
+    
+    &:hover .icon {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes expand {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}

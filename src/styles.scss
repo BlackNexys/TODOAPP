@@ -1,1 +1,127 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #f0f0f0;
+}
+
+.form-input {
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    
+    label {
+        display: block;
+        margin-bottom: 0.1rem;
+        font-weight: 500;
+        color: #333;
+    }
+
+    input, textarea {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+        background: transparent;
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+        box-sizing: border-box;
+        min-height: 1.75rem;
+
+        &:focus {
+            border-color: #95f0b5;
+            box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+            outline: none;
+        }
+    }
+}
+
+.button {
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    border: 0px solid transparent;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 100px;
+    box-sizing: border-box;
+    text-decoration: none;
+
+
+    --btn-light: #e6e6e6;
+    --btn-dark: #292929;
+
+    &.warn {
+        --btn-light:#ff9800;
+        --btn-dark: #5a2000;
+    }
+
+    &.danger {
+        --btn-light: #f44336;
+        --btn-dark: #631111;
+    }
+
+    &.success {
+        --btn-light: #95f0b5;
+        --btn-dark: #0a431e;
+    }
+
+    &.info {
+        --btn-light: #2196f3;
+        --btn-dark: #082857;
+    }
+
+    &.contained {
+        background-color: var(--btn-light);
+        color: var(--btn-dark);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &.outlined {
+        background-color: transparent;
+        color: var(--btn-dark);
+        border: 1px solid var(--btn-light);
+        box-shadow: none;
+
+        &:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    &.text {
+        background-color: transparent;
+        color: var(--btn-dark);
+        box-shadow: none;
+
+        &:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+    }
+}

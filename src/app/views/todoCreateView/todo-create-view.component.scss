@@ -1,0 +1,12 @@
+.create-todo-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 768px;
+}
+
+.create-todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

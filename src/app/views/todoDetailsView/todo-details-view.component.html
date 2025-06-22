@@ -1,0 +1,43 @@
+
+<div *ngIf="loading" class="loader">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div *ngIf="!loading && todo" class="details-todo-main">
+    <div>
+        <a routerLink="/" class="button outlined" color="primary">Back to List</a>
+    </div>
+    <div>
+        <h1>TODO: {{ todo.Id }}: {{ todo.Name }}</h1>
+        <p><strong>Created:</strong> {{todo.Created ? formatDaysAgo(todo.Created) : '-'}}</p>
+        <p><strong>Status:</strong> {{ todo.Done ? 'Done ✔️' : 'Pending ⏳' }}</p>
+    </div>
+
+    <div>
+        <h2>Description</h2>
+        <p>{{ todo.Description || '-' }}</p>
+    </div>
+
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p><strong>Created:</strong> {{todo.Created ? formatDate(todo.Created) : '-'}}</p>
+            <p><strong>Expenses:</strong> {{ todo.Expenses ? formatCurrency(todo.Expenses) : '-' }}</p>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="details-todo-actions">
+        <button class="button contained danger" (click)="delete(todo)">Delete</button>
+        <button class="button contained {{todo.Done ? '' : 'success'}}" (click)="update(todo)">
+            {{ todo.Done ? 'Mark as Pending' : 'Mark as Done' }}
+        </button>
+    </div>
+</div>
+
+<div *ngIf="!loading && !todo" class="no-todo">
+    <h2>TODO not found</h2>
+    <p>The TODO item you are looking for does not exist.</p>
+    <a routerLink="/" class="button outlined">Back to List</a>
+</div>

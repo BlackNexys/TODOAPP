@@ -1,0 +1,52 @@
+<h1>TODO Overview</h1>
+<div class="todo-list-header">
+    <p>This is a list of all your TODOs. You can click on the ID or Name to view details.</p>
+    <div class="todo-list-actions">
+        <button class="button contained" routerLink="/todo/new">
+            Add New TODO
+        </button>
+    </div>
+</div>
+
+<div *ngIf="loading" class="loader">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<table mat-table [dataSource]="todos" class="mat-elevation-z8">
+    <ng-container matColumnDef="done">
+        <th mat-header-cell *matHeaderCellDef> Done </th>
+        <td mat-cell *matCellDef="let element"> 
+            <mat-checkbox 
+                class="example-margin" 
+                [checked]="element.Done"
+                (change)="update(element)">
+            </mat-checkbox>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element">
+            <a class="table-links" routerLink="/todo/{{element.Id}}">
+                {{element.Id}} 
+            </a>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element">
+            <a class="table-links" routerLink="/todo/{{element.Id}}">
+                {{element.Name}} 
+            </a>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef> Created </th>
+        <td mat-cell *matCellDef="let element"> {{element.Created ? formatDate(element.Created) : '-'}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

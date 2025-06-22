@@ -1,0 +1,4 @@
+<button *ngFor="let toast of toasts; index as i" class="toast {{toast.type}}" (click)="removeToast(i)">
+    <mat-icon class="icon">close</mat-icon>
+    {{toast.message}}
+</button>

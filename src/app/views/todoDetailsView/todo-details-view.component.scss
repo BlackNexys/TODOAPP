@@ -1,0 +1,18 @@
+.details-todo-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 768px;
+    width: 100%;
+}
+
+.details-todo-actions {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.icon {
+    height: 1em;
+    width: 1em;
+}

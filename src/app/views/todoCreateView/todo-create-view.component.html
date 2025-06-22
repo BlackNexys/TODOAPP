@@ -1,0 +1,33 @@
+
+<div class="create-todo-main">
+    <div>
+        <a routerLink="/" class="button outlined" color="primary">Back to List</a>
+    </div>
+    <div>
+        <h1>Create Todo</h1>
+    </div>
+
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-content>
+            <form class="create-todo-form" (submit)="submit($event)">
+                <div class="form-input">
+                    <label for="name">Name*</label>
+                    <input id="name" type="text" name="Name" placeholder="I got to remember this" required="true" />
+                </div>
+                <div class="form-input">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="4" name="Description" placeholder="Lorem ipsum"></textarea>
+                </div>
+                <div class="form-input">
+                    <label for="expenses">Expenses</label>
+                    <input type="number" name="Expenses" placeholder="1234..." />
+                </div>
+                <div class="details-todo-actions">
+                    <button type="submit" class="button contained success">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
