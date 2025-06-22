@@ -6,11 +6,10 @@ export default class TodoApi {
     static async getTodos(): Promise<ITodo[]> {
         const todos = TodoApi.fetchSessionStorageTodos();
         if (todos.length > 0) {
-            // Return cached todos if available
             return new Promise((resolve) => {
                 setTimeout(() => {
                     resolve(todos);
-                }, 1000); // Simulate network delay
+                }, 500);
             });
         }
         // Fetch from API if no cached todos
@@ -19,7 +18,6 @@ export default class TodoApi {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        // Simulate a delay to mimic network latency
         sessionStorage.setItem('todos', JSON.stringify(data));
 
         return data;
@@ -28,11 +26,11 @@ export default class TodoApi {
     static async addTodo(todo: any): Promise<ITodo> {
         const todos = TodoApi.fetchSessionStorageTodos();
         const newTodo = {
-            Id: todos.length + 1, // Simple ID generation
+            Id: todos.length + 1,
             Created: new Date().toISOString(),
             Done: false,
             ...todo,
-            Expenses: parseFloat(todo.Expenses) || 0 // Ensure Expenses is set
+            Expenses: parseFloat(todo.Expenses) || 0
         };
         todos.push(newTodo);
         sessionStorage.setItem('todos', JSON.stringify(todos));

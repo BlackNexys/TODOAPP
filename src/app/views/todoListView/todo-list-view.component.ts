@@ -51,7 +51,6 @@ export class TodoListViewComponent {
     update(todo : Todo) {
         todo.Done = !todo.Done; // Toggle the Done status
         
-        // Ensure the todo object has an Id property
         if (!todo.Id) {
             console.error('Todo does not have an Id:', todo);
             Toastservice.addError('Todo does not have an Id');

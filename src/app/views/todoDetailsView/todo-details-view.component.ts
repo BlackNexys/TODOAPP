@@ -29,7 +29,7 @@ import Toastservice from '../../../services/toast.service';
 })
 export class TodoDetailsViewComponent {
     private router = inject(Router);
-    id: string | number | null = null; // Assuming you will set this from the route or some other source
+    id: string | number | null = null; 
     todo: Todo | null = null;
     loading: boolean = false;
 
